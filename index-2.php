@@ -29,11 +29,11 @@
     <!----Main Wrapper Start---->
     <div class="ms_main_wrapper">
         <!---Side Menu Start--->
-<?php include "shared/sidebar.php"?>
+        <?php include "shared/sidebar.php" ?>
         <!---Main Content Start--->
         <div class="ms_content_wrapper padder_top80">
             <!---Header--->
-<?php include "shared/header.php"?>
+            <?php include "shared/header.php" ?>
             <!---Banner--->
             <div class="ms-banner">
                 <div class="container-fluid">
@@ -2112,7 +2112,7 @@
     </div>
     <!----Register Modal Start---->
     <!-- Modal -->
-<?php include "shared/register.php"?>
+    <?php include "shared/register.php" ?>
     <!----Language Selection Modal---->
     <div class="ms_lang_popup">
         <div id="lang_modal" class="modal  centered-modal" role="dialog">
@@ -2261,6 +2261,6 @@
     </div>
     <!--Main js file Style-->
     <?php include "shared/scripts.php" ?>
-</body> 
+</body>
 
 </html>
