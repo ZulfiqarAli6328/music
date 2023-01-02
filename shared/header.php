@@ -1,3 +1,23 @@
+<style>
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 <div class="ms_header">
                 <div class="ms_top_left">
                     <div class="ms_top_search">
@@ -15,8 +35,26 @@
                         <span data-toggle="modal" data-target="#lang_modal">languages <img src="images/svg/lang.svg" alt=""></span>
                     </div>  
                     <div class="ms_top_btn">
-                        <a href="javascript:;" class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>register</span></a>
-                        <a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>
+                        <?php
+                        if(isset($_SESSION['user_id'])){
+                        ?>
+                        <div class="dropdown"><a href="#" style="text-transform:uppercase;" class="ms_btn"><?php echo $_SESSION['username']?></a>
+											
+											<!--Dropdown Menu Start-->
+											
+		                                            <div class="dropdown-content"><a href="logout.php" class="ms_btn">Log out</a></div>
+													
+		                                            
+		                                            
+		                                        
+		                                        <!--Dropdown Menu End-->
+                        </div>
+                                            <?php
+                        }else{
+                                            ?>
+                        <a href="./Login_v1/register.php" class="ms_btn reg_btn" ><span>register</span></a>
+                        <a href="./Login_v1/login.php" class="ms_btn" ><span>login</span></a>
+                        <?php }?>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,30 @@
+
+<?php
+session_start();
+
+include "shared/database.php";
+
+if(isset($_POST['register'])){
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $pswd = $_POST['pswd'];
+    $re_pswd = $_POST['conf-pswd'];
+
+    if($pswd == $re_pswd){
+        $user_q = "INSERT into `users` values(null, '$username', '$email', '$pswd')";
+        $user_res = mysqli_query($con, $user_q);
+        if($user_res){
+            header('location: #myModal1');
+            die;
+        }else{
+            echo '<script>alert("Sign Up Error")</script>';
+        }
+    } else {
+        echo '<script>alert("Passwords do not match")</script>';
+    }
+}
+?>
+
 <div class="ms_register_popup">
         <div id="myModal" class="modal  centered-modal" role="dialog">
             <div class="modal-dialog register_dialog">
@@ -13,30 +40,30 @@
                         <div class="ms_register_form">
                             <h2>Register / Sign Up</h2>
                             <div class="form-group">
-                                <input type="text" placeholder="Enter Your Name" class="form-control">
+                                <input type="text" placeholder="Enter Your Name" name="username" class="form-control">
                                 <span class="form_icon">
                                     <i class="fa_icon form-user" aria-hidden="true"></i>
                                 </span>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Enter Your Email" class="form-control">
+                                <input type="text" placeholder="Enter Your Email" name="email" class="form-control">
                                 <span class="form_icon">
                                     <i class="fa_icon form-envelope" aria-hidden="true"></i>
                                 </span>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Enter Password" class="form-control">
+                                <input type="password" placeholder="Enter Password" name="pswd" class="form-control">
                                 <span class="form_icon">
                                     <i class="fa_icon form-lock" aria-hidden="true"></i>
                                 </span>
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Confirm Password" class="form-control">
+                                <input type="password" placeholder="Confirm Password" name="conf-pswd" class="form-control">
                                 <span class="form_icon">
                                     <i class=" fa_icon form-lock" aria-hidden="true"></i>
                                 </span>
                             </div>
-                            <a href="#" class="ms_btn">register now</a>
+                            <a href="#" class="ms_btn"><input type="button" value="Register now" name="register" style="background-color: transparent;border:none;color: black;" class="reg_btn"> </a>
                             <p>Already Have An Account? <a href="#myModal1" data-toggle="modal" class="ms_modal hideCurrentModel">login here</a></p>
                         </div>
                     </div>
@@ -75,7 +102,7 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <a href="profile.html" class="ms_btn" target="_blank">login now</a>
+                            <a href="profile.php" class="ms_btn" target="_blank">login now</a>
                             <div class="popup_forgot">
                                 <a href="#">Forgot Password ?</a>
                             </div>

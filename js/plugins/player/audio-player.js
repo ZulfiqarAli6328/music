@@ -115,7 +115,7 @@ $(function() {
             var playlist = myPlaylist.playlist;
             $.each(playlist, function(index, obj) {
                 if (index == current) {
-                    $(".jp-now-playing").html("<div class='jp-track-name'><span class='que_img'><img src='"+obj.image+"'></span><div class='que_data'>" + obj.title + " <div class='jp-artist-name'>" + obj.artist + "</div></div></div>");
+                    $(".jp-now-playing").php("<div class='jp-track-name'><span class='que_img'><img src='"+obj.image+"'></span><div class='que_data'>" + obj.title + " <div class='jp-artist-name'>" + obj.artist + "</div></div></div>");
                 }
             });
 			$('.knob-wrapper').mousedown(function() {
@@ -194,7 +194,7 @@ $(function() {
             });
             $('.hide_player').unbind().on('click', function() {
                 $('.audio-player').toggleClass('is_hidden');
-                $(this).html($(this).html() == '<i class="fa fa-angle-down"></i> HIDE' ? '<i class="fa fa-angle-up"></i> SHOW PLAYER' : '<i class="fa fa-angle-down"></i> HIDE');
+                $(this).php($(this).php() == '<i class="fa fa-angle-down"></i> HIDE' ? '<i class="fa fa-angle-up"></i> SHOW PLAYER' : '<i class="fa fa-angle-down"></i> HIDE');
             });
             $('body').unbind().on('click', '.audio-play-btn', function() {
                 $('.audio-play-btn').removeClass('is_playing');

@@ -79,6 +79,7 @@ a:focus,
 button:focus {
 	outline: none;
 }
+
 .ms_color {
 	color: #3bc8e7 !important
 }
