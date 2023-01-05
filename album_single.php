@@ -1,14 +1,20 @@
+<?php
+session_start();
+error_reporting(0);
+$user = $_SESSION['user_id'];
+$movie_id = $_GET['id'];
+$link = mysqli_connect('localhost', 'root', '', 'music_db');
+$q = "SELECT *  from `uploads` where id =" . $_GET['id'];
+$res = mysqli_query($link, $q);
+$row = mysqli_fetch_assoc($res);
+?>
 <!DOCTYPE html>
-
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
 <!-- Begin Head -->
-
-
-
 <head>
     <title>Miraculous - Online Music Store Html Template</title>
     <meta charset="utf-8">
@@ -51,181 +57,21 @@
     <!----Main Wrapper Start---->
     <div class="ms_main_wrapper">
         <!---Header--->
-        <div class="ms_header">
-            <div class="ms_top_left">
-                <div class="ms_top_search">
-                    <input type="text" class="form-control" placeholder="Search Music Here..">
-                    <span class="search_icon">
-							<img src="images/svg/search.svg" alt="">
-						</span>
-                </div>
-               <div class="ms_top_trend">
-                        <span><a href="#"  class="ms_color">Trending Songs :</a></span> <span class="top_marquee"><a href="#">Dream your moments, Until I Met You, Gimme Some Courage, Dark Alley (+8 More)</a></span>
-               </div>
-            </div>
-            <div class="ms_top_right">
-                <div class="ms_top_lang">
-                    <span data-toggle="modal" data-target="#lang_modal">languages <img src="images/svg/lang.svg" alt=""></span>
-                </div>
-                <div class="ms_top_btn">
-					<a href="javascript:;" class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>register</span></a>
-					<a href="javascript:;" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>
-               </div>
-            </div>
-        </div>
+<?php include "shared/header.php"?>
         <!---Side Menu Start--->
-        <div class="ms_sidemenu_wrapper">
-            <div class="ms_nav_close">
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </div>
-            <div class="ms_sidemenu_inner">
-                <div class="ms_logo_inner">
-                    <div class="ms_logo">
-                        <a href="index.php"><img src="images/logo.png" alt="" class="img-fluid"/></a>
-                    </div>
-                    <div class="ms_logo_open">
-                        <a href="index.php"><img src="images/open_logo.png" alt="" class="img-fluid"/></a>
-                    </div>
-                </div>
-                <div class="ms_nav_wrapper">
-                    <ul>
-                        <li><a href="index.php" title="Discover">
-						<span class="nav_icon">
-							<span class="icon icon_discover"></span>
-						</span>
-						<span class="nav_text">
-							discover
-						</span>
-						</a>
-                        </li>
-                        <li><a href="album.php" class="active" title="Albums">
-						<span class="nav_icon">
-							<span class="icon icon_albums"></span>
-						</span>
-						<span class="nav_text">
-							albums
-						</span>
-						</a>
-                        </li>
-                        <li><a href="artist.php" title="Artists">
-						<span class="nav_icon">
-							<span class="icon icon_artists"></span>
-						</span>
-						<span class="nav_text">
-							artists
-						</span>
-						</a>
-                        </li>
-                        <li><a href="genres.php" title="Genres">
-						<span class="nav_icon">
-							<span class="icon icon_genres"></span>
-						</span>
-						<span class="nav_text">
-							genres
-						</span>
-						</a>
-                        </li>
-                        <li><a href="top_track.php" title="Top Tracks">
-						<span class="nav_icon">
-							<span class="icon icon_tracks"></span>
-						</span>
-						<span class="nav_text">
-							top tracks
-						</span>
-						</a>
-                        </li>
-                        <li><a href="free_music.php" title="Free Music">
-						<span class="nav_icon">
-							<span class="icon icon_music"></span>
-						</span>
-						<span class="nav_text">
-							free music
-						</span>
-						</a>
-                        </li>
-                        <li><a href="stations.php" title="Stations">
-						<span class="nav_icon">
-							<span class="icon icon_station"></span>
-						</span>
-						<span class="nav_text">
-							stations
-						</span>
-						</a>
-                        </li>
-                    </ul>
-                    <ul class="nav_downloads">
-                        <li><a href="download.php" title="Downloads">
-						<span class="nav_icon">
-							<span class="icon icon_download"></span>
-						</span>
-						<span class="nav_text">
-							downloads
-						</span>
-						</a>
-                        </li>
-                        <li><a href="purchase.php" title="Purchased">
-						<span class="nav_icon">
-							<span class="icon icon_purchased"></span>
-						</span>
-						<span class="nav_text">
-							purchased
-						</span>
-						</a>
-                        </li>
-                        <li><a href="favourite.php" title="Favourites">
-						<span class="nav_icon">
-							<span class="icon icon_favourite"></span>
-						</span>
-						<span class="nav_text">
-							favourites
-						</span>
-						</a>
-                        </li>
-                        <li><a href="history.php" title="History">
-						<span class="nav_icon">
-							<span class="icon icon_history"></span>
-						</span>
-						<span class="nav_text">
-							history
-						</span>
-						</a>
-                        </li>
-                    </ul>
-                    <ul class="nav_playlist">
-                        <li><a href="feature_playlist.php" title="Featured Playlist">
-						<span class="nav_icon">
-							<span class="icon icon_fe_playlist"></span>
-						</span>
-						<span class="nav_text">
-							featured playlist
-						</span>
-						</a>
-                        </li>
-                        <li><a href="add_playlist.php" title="Create Playlist">
-						<span class="nav_icon">
-							<span class="icon icon_c_playlist"></span>
-						</span>
-						<span class="nav_text">
-							create playlist
-						</span>
-						</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+ <?php include "shared/sidebar.php"?>
         <!----Album Single Section Start---->
         <div class="ms_album_single_wrapper">
             <div class="album_single_data">
                 <div class="album_single_img">
-                    <img src="images/album/single_album.jpg" alt="" class="img-fluid">
+                    <img src="admin/assets/thumbnails/<?= $row["cover_image"] ?>" style="height: 200px; width: 200px;" alt="" class="img-fluid">
                 </div>
                 <div class="album_single_text">
-                    <h2>Dream Your Moments</h2>
-                    <p class="singer_name">By - Ava Cornish, Brian Hill</p>
+                    <h2><?= $row['song_title']?></h2>
+                    <p class="singer_name"><?= $row['artist']?></p>
                     <div class="album_feature">
                         <a href="#" class="album_date">5 song | 25:10</a>
-                        <a href="#" class="album_date">Released March 23, 2018  | Abc Music Company</a>
+                        <a href="#" class="album_date">Released <?= $row['song_title']?>  | Abc Music Company</a>
                     </div>
                     <div class="album_btn">
                         <a href="#" class="ms_btn play_btn"><span class="play_all"><img src="images/svg/play_all.svg" alt="">Play All</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
