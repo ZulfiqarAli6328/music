@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 04:02 PM
+-- Generation Time: Jan 06, 2023 at 06:03 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -112,9 +112,12 @@ CREATE TABLE `uploads` (
 --
 
 INSERT INTO `uploads` (`id`, `genre_id`, `title`, `artist`, `description`, `upath`, `cover_image`, `date_created`) VALUES
-(1, 2, 'Song 101', 'BenSound', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; font-size: 14px; text-align: justify;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas est massa, non ullamcorper augue sodales non. Morbi mollis venenatis augue sit amet lacinia. Cras tempor tempor urna, nec consectetur tellus ullamcorper quis. Mauris vitae blandit tellus. Sed feugiat tincidunt malesuada. Cras egestas consequat molestie. Ut non ex nec tellus vestibulum tincidunt. Suspendisse facilisis lorem id sapien euismod, id gravida felis blandit. Nam quis diam tempor, luctus nisl at, auctor velit. Nunc rhoncus, turpis et ornare sagittis, metus diam dignissim dolor, non faucibus quam leo ut lectus. Etiam accumsan tellus eu hendrerit posuere. Aliquam erat volutpat. Donec fermentum purus odio, vel sodales sapien lobortis eu. Sed neque tellus, sagittis id scelerisque at, luctus ac felis.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', '1605833220_bensound-creativeminds.mp3', '1605833220_m1.jpg', 2147483647),
-(2, 1, 'Song 102', 'BenSound', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; font-size: 14px; text-align: justify;&quot;&gt;Ut facilisis, mi eget semper euismod, urna mauris tristique ipsum, a auctor tortor leo a arcu. Duis nec felis eget diam scelerisque porttitor. Etiam ullamcorper leo auctor, imperdiet diam nec, scelerisque lacus. Sed at ornare tortor. Praesent volutpat, lacus eu molestie elementum, purus nulla pellentesque eros, sit amet viverra ex nisl quis risus. Etiam elementum posuere odio vitae lacinia. Nunc magna nunc, placerat ut neque vitae, dignissim eleifend sapien. Phasellus arcu felis, maximus vel ultrices quis, aliquam ac sapien. Sed aliquet interdum sollicitudin. Maecenas blandit tellus eget risus finibus, non gravida nunc pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;', '1605833760_bensound-energy.mp3', '1605833760_m3.jpg', 2147483647),
-(3, 2, 'like', 'atif', 'dertferejrakjr', 'KGF Chapter 2 Trailer_Hindi_Yash_Sanjay Dutt_Raveena Tandon_Srinidhi_Prashanth Neel_Vijay Kiragandur.mp4', 'content_page-0001.jpg', 12);
+(4, 1, 'John Wick', 'Ronaldo', 'This a heart Touching SOng', 'john wick.mp4', 'john wick.jpg', 12),
+(5, 3, 'Drishyam', 'Ajay Devgan', 'Mind Blowing', 'Drishyam 2_ Official Trailer _ Ajay Devgn _ Akshaye Khanna _ Tabu _ Shriya Saran _ Abhishek Pathak.mp4', 'drishyam.jpg', 15),
+(6, 1, 'Bhool Bhulaiya', 'Taboo', 'heart touching', 'Bhool Bhulaiyaa 2 (Trailer) Kartik A, Kiara A, Tabu _ Anees B, Bhushan K, Murad K, Anjum K, Pritam.mp4', 'Bhool_Bhulaiyaa_2.jpg', 1),
+(7, 1, 'Nobody', 'Bill Gates', 'Programming Song', 'Nobody - Official Trailer (HD).mp4', 'nobody-321545868.jpg', 1),
+(8, 2, 'Logan', 'X-Men', 'Action Song', 'Logan _ Official Trailer [HD] _ 20th Century FOX.mp4', 'logan.jpg', 12),
+(9, 1, 'Tokyo Drift', 'Dominic Toreto', 'drifting Song', 'The Fast And The Furious_ Tokyo Drift - Trailer (HD).mp4', 'tokyo.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -189,7 +192,7 @@ ALTER TABLE `playlist_items`
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

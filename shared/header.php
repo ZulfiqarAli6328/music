@@ -31,10 +31,7 @@
                     </div>
                 </div>
                 <div class="ms_top_right">
-                    <div class="ms_top_lang">
-                        <span data-toggle="modal" data-target="#lang_modal">languages <img src="images/svg/lang.svg" alt=""></span>
-                    </div>  
-                    <div class="ms_top_btn">
+                                      <div class="ms_top_btn">
                         <?php
                         if(isset($_SESSION['user_id'])){
                         ?>

@@ -40,7 +40,10 @@
                                 </span>
                             </a>
                         </li>
-                        <li><a href="genres.php" title="Genres">
+                       
+                    </ul>
+                    <ul class="nav_downloads">
+                    <li><a href="genres.php" title="Genres">
                                 <span class="nav_icon">
                                     <span class="icon icon_genres"></span>
                                 </span>
@@ -64,73 +67,6 @@
                                 </span>
                                 <span class="nav_text">
                                     free music
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="stations.php" title="Stations">
-                                <span class="nav_icon">
-                                    <span class="icon icon_station"></span>
-                                </span>
-                                <span class="nav_text">
-                                    stations
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav_downloads">
-                        <li><a href="download.php" title="Downloads">
-                                <span class="nav_icon">
-                                    <span class="icon icon_download"></span>
-                                </span>
-                                <span class="nav_text">
-                                    downloads
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="purchase.php" title="Purchased">
-                                <span class="nav_icon">
-                                    <span class="icon icon_purchased"></span>
-                                </span>
-                                <span class="nav_text">
-                                    purchased
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="favourite.php" title="Favourites">
-                                <span class="nav_icon">
-                                    <span class="icon icon_favourite"></span>
-                                </span>
-                                <span class="nav_text">
-                                    favourites
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="history.php" title="History">
-                                <span class="nav_icon">
-                                    <span class="icon icon_history"></span>
-                                </span>
-                                <span class="nav_text">
-                                    history
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav_playlist">
-                        <li><a href="feature_playlist.php" title="Featured Playlist">
-                                <span class="nav_icon">
-                                    <span class="icon icon_fe_playlist"></span>
-                                </span>
-                                <span class="nav_text">
-                                    featured playlist
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="add_playlist.php" title="Create Playlist">
-                                <span class="nav_icon">
-                                    <span class="icon icon_c_playlist"></span>
-                                </span>
-                                <span class="nav_text">
-                                    create playlist
                                 </span>
                             </a>
                         </li>
