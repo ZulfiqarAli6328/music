@@ -64,7 +64,7 @@ $row = mysqli_fetch_assoc($res);
         <div class="ms_album_single_wrapper">
             <div class="album_single_data">
                 <div class="album_single_img">
-                    <img src="admin/assets/thumbnails/<?= $row["cover_image"] ?>" style="height: 200px; width: 200px;" alt="" class="img-fluid">
+                    <img src="admin/assets/musicphoto/<?= $row["cover_image"] ?>" style="height: 200px; width: 200px;" alt="" class="img-fluid">
             
                 </div>
                 <div class="album_single_text">
