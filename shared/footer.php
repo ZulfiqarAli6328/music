@@ -7,16 +7,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer_box">
                             <h1 class="footer_title">miraculous music station</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer_box footer_app">
-                            <h1 class="footer_title">Download our App</h1>
-                            <p>Go Mobile with our app.<br> Listen to your favourite songs at just one click. Download Now !</p>
-                            <a href="#" class="foo_app_btn"><img src="images/google_play.jpg" alt="" class="img-fluid"></a>
-                            <a href="#" class="foo_app_btn"><img src="images/app_store.jpg" alt="" class="img-fluid"></a>
-                            <a href="#" class="foo_app_btn"><img src="images/windows.jpg" alt="" class="img-fluid"></a>
+                            <p>MusicStation is a music service platform developed by Omnifone. The cloud based platform works across a number of different digital device platforms and is tailored specifically for various partners including rara.com, RIM, Sony, Sony Ericsson, HP, BSkyB, Vodafone, Telenor, Hutchison Telecom and Vodacom.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -55,7 +46,7 @@
                                     </div>
                                     <div class="foo_con_data">
                                         <span class="con-title">email us :</span>
-                                        <span><a href="#">demo@mail.com </a>, <a href="#">dummy@mail.com</a></span>
+                                        <span><a href="#">Tayyab@gmail.com </a>
                                     </div>
                                 </li>
                                 <li>
@@ -85,7 +76,7 @@
             <div class="col-lg-12">
                 <div class="ms_copyright">
                     <div class="footer_border"></div>
-                    <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                    <p><a target="_blank" href="#">Tayyab</a></p>
                 </div>
             </div>
         </div>
