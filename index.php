@@ -75,7 +75,7 @@ session_start();
                             <div class="swiper-slide">
                                 <div class="ms_rcnt_box">
                                     <div class="ms_rcnt_box_img">
-                                        <img src="admin/assets/thumbnails/<?= $row["cover_image"] ?>" style="height:280px;" alt="">
+                                        <img src="admin/assets/musicphoto/<?= $row["cover_image"] ?>" style="height:280px;" alt="">
                                         <div class="ms_main_overlay">
                                             <div class="ms_box_overlay"></div>
                                             <div class="ms_more_icon">

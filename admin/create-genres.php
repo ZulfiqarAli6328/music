@@ -5,11 +5,15 @@ $link = mysqli_connect("localhost","root","","music_db");
 if(isset($_POST['create']))
 {
     $name = $_POST['genre'];
-    $q = "INSERT into `categories` values(null,'$name')";
+    $descrip = $_POST['description'];
+    $dir = "assets/genresphoto/";
+    $image_name = basename($_FILES['image']['name']);
+        $up = move_uploaded_file($_FILES['image']["tmp_name"], $dir.$image_name);
+    $q = "INSERT into `genres` values(null,'$name','$descrip','$image_name')";
     $res = mysqli_query($link,$q);
     }
     if(@$res)
-        header("location:list-category.php");
+        header("location:list-genres.php");
 ?>
 
 <!DOCTYPE html>
@@ -56,14 +60,17 @@ if(isset($_POST['create']))
                     ?>
                     <div class="card">
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <input type="text" class="form-control" placeholder="Genre Name" name="genre" pattern="[A-Za-z ]{3,50}" id="" required>
                                     </div>          
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 mt-3">
                                         <input type="text" class="form-control" placeholder="Description" name="description" pattern="[A-Za-z ]{3,50}" id="" required>
-                                    </div>             
+                                    </div>  
+                                    <div class="col-sm-12 mt-3">
+                                        <input type="file" class="form-control"  name="image"  required>
+                                    </div>            
                             
                                     <div class="col-sm-12 mt-3">
                                         <input type="submit" value="Create" name="create" class="btn btn-success float-right">

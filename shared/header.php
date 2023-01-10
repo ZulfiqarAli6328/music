@@ -1,3 +1,6 @@
+<?php
+include "shared/database.php";
+?>
 <style>
     .dropdown {
   position: relative;

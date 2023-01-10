@@ -1,8 +1,8 @@
 <?php
 session_start();
-    $con = mysqli_connect('localhost', 'root', '', 'ticket-booking');
+    $con = mysqli_connect('localhost', 'root', '', 'music_db');
     $id = $_GET['id'];
-    $query = "SELECT * from `upload_trailers` where `id`=" .$id;
+    $query = "SELECT * from `uploads` where `id`=" .$id;
     $res = mysqli_query($con,$query);
     $user = mysqli_fetch_assoc($res);
 
@@ -16,44 +16,7 @@ if(isset($_POST['add'])){
     $r_date = $_POST['release-date'];
     
 // Screen Shot 1 Directory
-    $dir1 = "assets/screen-shots/";
-    $S1 = basename($_FILES['screen-shot1']['name']);
-    $up1 = move_uploaded_file($_FILES['screen-shot1']['tmp_name'], $dir1.$S1);
-// Screen Shot 2 Directory
-    $dir2 = "assets/screen-shots/";
-    $S2 = basename($_FILES['screen-shot2']['name']);
-    $up2 = move_uploaded_file($_FILES['screen-shot2']['tmp_name'], $dir2.$S2);
-// Screen Shot 3 Directory
-    $dir3 = "assets/screen-shots/";
-    $S3 = basename($_FILES['screen-shot3']['name']);
-    $up3 = move_uploaded_file($_FILES['screen-shot3']['tmp_name'], $dir3.$S3);
-// Screen Shot 4 Directory
-    $dir4 = "assets/screen-shots/";
-    $S4 = basename($_FILES['screen-shot4']['name']);
-    $up4 = move_uploaded_file($_FILES['screen-shot4']['tmp_name'], $dir4.$S4);
-// Screen Shot 5 Directory
-    $dir5 = "assets/screen-shots/";
-    $S5 = basename($_FILES['screen-shot5']['name']);
-    $up5 = move_uploaded_file($_FILES['screen-shot5']['tmp_name'], $dir5.$S5);
-// Screen Shot 6 Directory
-    $dir6 = "assets/screen-shots/";
-    $S6 = basename($_FILES['screen-shot6']['name']);
-    $up6 = move_uploaded_file($_FILES['screen-shot6']['tmp_name'], $dir6.$S6);
     
-// thumbnail Directory
-    $dir = "assets/thumbnails/";
-    $image_name = basename($_FILES['image']['name']);
-    $up = move_uploaded_file($_FILES['image']['tmp_name'], $dir.$image_name);
-
-// Movie Banner Directory
-    $banner_dir = "assets/banners/";
-    $banner_name = basename($_FILES['banner']['name']);
-    $up7 = move_uploaded_file($_FILES['banner']['tmp_name'], $banner_dir.$banner_name);
-
-// Trailer Directory
-    $t_dir = "assets/trailers/";
-    $t_name = basename($_FILES['trailer']['name']);
-    $t_up = move_uploaded_file($_FILES['trailer']['tmp_name'], $t_dir.$t_name);
    
     $upload = $up1.$up2.$up3.$up4.$up5.$up6.$up7.$up.$t_up ;
 
@@ -61,7 +24,7 @@ if(isset($_POST['add'])){
     $upload = true;
     if($upload)
     {
-        $q = "INSERT into `upload_trailers` values(null,'$movie_name','$desc','$date','$time','$category','$theatre','$image_name','$t_name','$r_date','$S1','$S2','$S3','$S4','$S5','$S6','$banner_name')";
+        $q = "INSERT into `uploads` values(null,'$movie_name','$desc','$date','$time','$category','$theatre','$image_name','$t_name','$r_date','$S1','$S2','$S3','$S4','$S5','$S6','$banner_name')";
         $res = mysqli_query($con, $q);
 
     }
@@ -116,6 +79,7 @@ if(isset($_POST['add'])){
                                         </div>
                                     <?php
                                     header("location: update.php");
+                                    die;
                                     }
                                     else 
                                     {
@@ -129,19 +93,19 @@ if(isset($_POST['add'])){
                                 <form action="" method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <span>Movie Name</span>
-                                            <input type="text" name="movie_name" id="" value="<?=$user['movie_name']?>" class="form-control" required>
+                                            <span>Music Name</span>
+                                            <input type="text" name="music_name" id="" value="<?=$user['title']?>" class="form-control" required>
                                         </div>
                                         <div class="col-sm-12 mt-3">
-                                        <span>Movie Description</span>
+                                        <span>Music Description</span>
                                             <textarea name="description" id="" value="<?=$user['description']?>" class="form-control" cols="30" rows="10" required></textarea>
                                         </div>
                                         <div class="col-sm-6 mt-3">
                                         <span>Movie Category</span>
-                                        <select name="category" id="" value="<?=$user['category']?>" class="form-control">
+                                        <select name="category" id="" value="<?=$user['genre_id']?>" class="form-control">
                                                 <option value="">SELECT CATEGORY</option>
                                                 <?php
-                                                    $q = "SELECT *  from `categories`";
+                                                    $q = "SELECT *  from `genres`";
                                                     $res = mysqli_query($con, $q);
                                                     while($row = mysqli_fetch_assoc($res)){
                                                         ?>
@@ -151,77 +115,18 @@ if(isset($_POST['add'])){
                                                 ?>
                                             </select>
                                         </div>
+                                        
                                         <div class="col-sm-6 mt-3">
-                                        <span>Theatre id</span>
-                                        <select name="theatre" value="<?=$user['theatre']?>" class="form-control" required >
-                                            
-                                        <option value="">SELECT THEATRES</option>
-                                                <?php
-                                                    $q = "SELECT *  from `theatres`";
-                                                    $res = mysqli_query($con, $q);
-                                                    while($row = mysqli_fetch_assoc($res)){
-                                                        ?>
-                                                        <option value="<?=$row['id']?>"><?=$row['theatre-name']?></option>
-                                                        <?php
-                                                    }
-                                                ?>
-                                         </select>
+                                        <span>Music Banner</span>
+                                            <input type="file" name="banner" value="<?=$user['cover_image']?>" min="0" id="" accept="image/*" class="form-control" required>
                                         </div>
 
                                         <div class="col-sm-6 mt-3">
-                                        <span>Movie Date</span>
-                                            <input type="date" name="date" value="<?=$user['date']?>" min="0"  id="" class="form-control" required>
+                                        <span>music file</span>
+                                            <input type="file" name="trailer" value="<?=$user['music']?>" min="0" accept="audio/*" class="form-control" required>
                                         </div>
 
-                                        <div class="col-sm-6 mt-3">
-                                        <span>Movie Time</span>
-                                            <input type="time" name="time" value="<?=$user['time']?>" min="0"  id="" class="form-control" required>
-                                        </div>
-
-                                         <div class="col-sm-6 mt-3">
-                                        <span>Movie Release-date</span>
-                                            <input type="date" name="release-date" value="<?=$user['release-date']?>" min="0"  id="" class="form-control" required>
-                                        </div>
-
-                                        <div class="col-sm-6 mt-3">
-                                        <span>Thumbnail</span>
-                                            <input type="file" name="image" value="<?=$user['img']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-
-                                        <div class="col-sm-6 mt-3">
-                                        <span>Movie Banner</span>
-                                            <input type="file" name="banner" value="<?=$user['Movie-banner']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-
-                                        <div class="col-sm-6 mt-3">
-                                        <span>Trailer file</span>
-                                            <input type="file" name="trailer" value="<?=$user['trailer']?>" min="0" accept="video/*" class="form-control" required>
-                                        </div>
-
-                                        <div class="col-sm-2 mt-3">
-                                        <span>Screen Shots</span>
-                                            <input type="file" name="screen-shot1" value="<?=$user['Screen-shot1']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-                                        <div class="col-sm-2 mt-3">
-                                        <span>#2</span>
-                                            <input type="file" name="screen-shot2" value="<?=$user['Screen-shot2']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-                                        <div class="col-sm-2 mt-3">
-                                        <span>#3</span>
-                                            <input type="file" name="screen-shot3" value="<?=$user['Screen-shot3']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-                                        <div class="col-sm-2 mt-3">
-                                        <span>#4</span>
-                                            <input type="file" name="screen-shot4" value="<?=$user['Screen-shot4']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-                                        <div class="col-sm-2 mt-3">
-                                        <span>#5</span>
-                                            <input type="file" name="screen-shot5" value="<?=$user['Screen-shot5']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
-                                        <div class="col-sm-2 mt-3">
-                                        <span>#6</span>
-                                            <input type="file" name="screen-shot6" value="<?=$user['Screen-shot6']?>" min="0" id="" accept="image/*" class="form-control" required>
-                                        </div>
+                                        
                         
                                         <div class="col-sm-12 mt-3">
                                                 <input type="submit" value="upload" class="btn btn-success float-right" name="add">

@@ -41,6 +41,7 @@ session_start();
       <th scope="col" style="color: white;">#</th>
       <th scope="col" style="color: white;">Category Name</th>
       <th scope="col" style="color: white;">Description</th>
+      <th scope="col" style="color: white;">Cover photo</th>
       <th scope="col" style="color: white;">Action</th>
 
 
@@ -58,8 +59,9 @@ session_start();
       <th scope="row"><?=$row['id']?></th>
       <td><?=$row['genre']?></td>
       <td><?=$row['description']?></td>
+      <td><img src="assets/genresphoto/<?=$row['cover_photo']?>" alt="" style="width: 100px;height: 100px;" class="mt-3"></td>
       <td>
-    <a href="delete-category.php?id=<?=$row['id']?>" class="btn btn-outline-danger">DELETE</a>
+    <a href="delete.php?id=<?=$row['id']?>" class="btn btn-outline-danger">DELETE</a>
     
     
     </td>

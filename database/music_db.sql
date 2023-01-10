@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 06:03 PM
+-- Generation Time: Jan 10, 2023 at 06:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,9 +39,7 @@ CREATE TABLE `genres` (
 --
 
 INSERT INTO `genres` (`id`, `genre`, `description`, `cover_photo`) VALUES
-(1, 'Pop', 'Popular music', '1605745560_play.jpg'),
-(2, 'Rock', ' Its loud and strong beats make it popular among the youths.', 'default_cover.jpg'),
-(3, 'Country Music', 'Country Music', 'default_cover.jpg');
+(9, 'rap', 'speed', 'DSC_3339.JPG');
 
 -- --------------------------------------------------------
 
@@ -98,26 +96,20 @@ INSERT INTO `playlist_items` (`id`, `playlist_id`, `music_id`, `date_created`) V
 
 CREATE TABLE `uploads` (
   `id` int(30) NOT NULL,
-  `genre_id` int(30) NOT NULL,
   `title` text NOT NULL,
+  `genre_id` int(11) NOT NULL,
   `artist` text NOT NULL,
   `description` text NOT NULL,
-  `upath` text NOT NULL,
   `cover_image` text NOT NULL,
-  `date_created` int(11) NOT NULL DEFAULT current_timestamp()
+  `music` varchar(354) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `uploads`
 --
 
-INSERT INTO `uploads` (`id`, `genre_id`, `title`, `artist`, `description`, `upath`, `cover_image`, `date_created`) VALUES
-(4, 1, 'John Wick', 'Ronaldo', 'This a heart Touching SOng', 'john wick.mp4', 'john wick.jpg', 12),
-(5, 3, 'Drishyam', 'Ajay Devgan', 'Mind Blowing', 'Drishyam 2_ Official Trailer _ Ajay Devgn _ Akshaye Khanna _ Tabu _ Shriya Saran _ Abhishek Pathak.mp4', 'drishyam.jpg', 15),
-(6, 1, 'Bhool Bhulaiya', 'Taboo', 'heart touching', 'Bhool Bhulaiyaa 2 (Trailer) Kartik A, Kiara A, Tabu _ Anees B, Bhushan K, Murad K, Anjum K, Pritam.mp4', 'Bhool_Bhulaiyaa_2.jpg', 1),
-(7, 1, 'Nobody', 'Bill Gates', 'Programming Song', 'Nobody - Official Trailer (HD).mp4', 'nobody-321545868.jpg', 1),
-(8, 2, 'Logan', 'X-Men', 'Action Song', 'Logan _ Official Trailer [HD] _ 20th Century FOX.mp4', 'logan.jpg', 12),
-(9, 1, 'Tokyo Drift', 'Dominic Toreto', 'drifting Song', 'The Fast And The Furious_ Tokyo Drift - Trailer (HD).mp4', 'tokyo.jpg', 1);
+INSERT INTO `uploads` (`id`, `title`, `genre_id`, `artist`, `description`, `cover_image`, `music`) VALUES
+(10, 'EK LAMHA', 9, 'mE', '<p>nnnnn</p>', 'certificate.jpg', 'Ik-Lamha(PaglaSongs).mp3');
 
 -- --------------------------------------------------------
 
@@ -126,6 +118,7 @@ INSERT INTO `uploads` (`id`, `genre_id`, `title`, `artist`, `description`, `upat
 --
 
 CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
@@ -135,8 +128,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`username`, `email`, `password`) VALUES
-('zulfiqar', 'zulfiqarali6328@gmail.com', '123');
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
+(1, 'zulfiqar', 'zulfiqarali6328@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -164,7 +157,14 @@ ALTER TABLE `playlist_items`
 -- Indexes for table `uploads`
 --
 ALTER TABLE `uploads`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `genre_id` (`genre_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -174,7 +174,7 @@ ALTER TABLE `uploads`
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `playlist`
@@ -192,7 +192,23 @@ ALTER TABLE `playlist_items`
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `uploads`
+--
+ALTER TABLE `uploads`
+  ADD CONSTRAINT `uploads_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

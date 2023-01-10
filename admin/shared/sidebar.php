@@ -16,8 +16,15 @@
                      <li><a class="nav-link" href="list-genres.php">List Genres</a></li>
                  </ul>
              </li>
+             <li class="dropdown">
+                 <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-boxes-stacked"></i><span>music</span></a>
+                 <ul class="dropdown-menu">
+                     <li><a class="nav-link" href="create-music.php">Create music</a></li>
+                     <li><a class="nav-link" href="list-music.php">List music</a></li>
+                 </ul>
+             </li>
              <li>
-                 <a href="upload-music.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Upload Movie</span></a>
+                 <a href="create-music.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Upload Music</span></a>
              </li>
              <li>
                  <a href="list-music.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>List Movies</span></a>
@@ -27,17 +34,7 @@
                  <a href="list-price.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Update Tickets Price</span></a>
              </li>
 
-             <li>
-                 <a href="tickets.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Booked Tickets</span></a>
-             </li>
-
-             <li>
-                 <a href="available-seats.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Available Seats</span></a>
-             </li>
-
-             <li>
-                 <a href="contact-us.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Contact Us</span></a>
-             </li>
+             
          </ul>
      </aside>
  </div>
