@@ -75,8 +75,15 @@ $row = mysqli_fetch_assoc($res);
                         <a href="#" class="album_date">Released <?= $row['song_title']?>  | Abc Music Company</a>
                     </div>
                     <div class="album_btn">
-                        <a href="admin/assets/trailers/<?= $row["trailer"]?>" class="ms_btn play_btn"><span class="play_all"><img src="images/svg/play_all.svg" alt="">Playn </span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
+                    <div> 
+  <button class="ms_btn play_btn"  onclick="document.getElementById('player').play()" >Play</button> 
+  <button class="ms_btn play_btn" onclick="document.getElementById('player').pause()">Pause</button> 
+  <button class="ms_btn play_btn" onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
+  <button class="ms_btn play_btn" onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
+</div>
                     </div>
+                    <audio id="player" src="admin/assets/music/<?= $row["music"] ?>"></audio>
+
                 </div>
                 <div class="album_more_optn ms_more_icon">
                     <span><img src="images/svg/more.svg" alt=""></span>
