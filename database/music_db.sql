@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2023 at 10:35 AM
+-- Generation Time: Jan 12, 2023 at 06:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `music_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
+(1, 'admin@music.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -94,6 +113,26 @@ INSERT INTO `playlist_items` (`id`, `playlist_id`, `music_id`, `date_created`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subscribers`
+--
+
+CREATE TABLE `subscribers` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subscribers`
+--
+
+INSERT INTO `subscribers` (`id`, `name`, `email`) VALUES
+(1, 'zulfiqar', 'zulfiqarali6328@gmail.com'),
+(2, 'tayyab', 'tayyab@gmail.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `uploads`
 --
 
@@ -143,6 +182,12 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `genres`
 --
 ALTER TABLE `genres`
@@ -158,6 +203,12 @@ ALTER TABLE `playlist`
 -- Indexes for table `playlist_items`
 --
 ALTER TABLE `playlist_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subscribers`
+--
+ALTER TABLE `subscribers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -178,6 +229,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
@@ -194,6 +251,12 @@ ALTER TABLE `playlist`
 --
 ALTER TABLE `playlist_items`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `uploads`
