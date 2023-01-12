@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2023 at 06:01 PM
+-- Generation Time: Jan 12, 2023 at 10:35 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,7 +39,10 @@ CREATE TABLE `genres` (
 --
 
 INSERT INTO `genres` (`id`, `genre`, `description`, `cover_photo`) VALUES
-(9, 'rap', 'speed', 'DSC_3339.JPG');
+(9, 'rap', 'speed', 'DSC_3339.JPG'),
+(10, 'hiphop', 'reterterte', 'DSC_3341.JPG'),
+(11, 'romantic', 'rtserte', 'DSC_3342.JPG'),
+(12, 'classic', 'tertertw', 'DSC_3340.JPG');
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,11 @@ CREATE TABLE `uploads` (
 --
 
 INSERT INTO `uploads` (`id`, `title`, `genre_id`, `artist`, `description`, `cover_image`, `music`) VALUES
-(10, 'EK LAMHA', 9, 'mE', '<p>nnnnn</p>', 'certificate.jpg', 'Ik-Lamha(PaglaSongs).mp3');
+(10, 'EK LAMHA', 9, 'mE', '<p>nnnnn</p>', 'certificate.jpg', 'Ik-Lamha(PaglaSongs).mp3'),
+(11, 'pasoori', 11, 'gill', 'ertrtertertrt', 'p.jpg', 'pasoori-coke-studio.mp3'),
+(12, 'afsany', 9, 'talha', 'drfjgfdjglfdkjgfkj', 'a.jpg', 'AFSANAY Song Mp3 Download Young Stunners.mp3'),
+(13, 'khani suno', 11, 'khalil', 'tytrrtyrty', 'ks.jpg', 'Kaifi-Khalil-Kahani-Suno-2.0-Official-Music-Video.mp3'),
+(14, 'kesariya', 12, 'arjit', 'jdjgjer', 'k.jpg', 'Kesariya(PagalWorld.com.se).mp3');
 
 -- --------------------------------------------------------
 
@@ -174,7 +181,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `playlist`
@@ -192,7 +199,7 @@ ALTER TABLE `playlist_items`
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
