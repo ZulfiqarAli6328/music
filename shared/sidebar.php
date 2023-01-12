@@ -22,24 +22,7 @@
                                 </span>
                             </a>
                         </li>
-                        <li><a href="album.php" title="Albums">
-                                <span class="nav_icon">
-                                    <span class="icon icon_albums"></span>
-                                </span>
-                                <span class="nav_text">
-                                    albums
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="artist.php" title="Artists">
-                                <span class="nav_icon">
-                                    <span class="icon icon_artists"></span>
-                                </span>
-                                <span class="nav_text">
-                                    artists
-                                </span>
-                            </a>
-                        </li>
+                       
                        
                     </ul>
                     <ul class="nav_downloads">
@@ -52,24 +35,7 @@
                                 </span>
                             </a>
                         </li>
-                        <li><a href="top_track.php" title="Top Tracks">
-                                <span class="nav_icon">
-                                    <span class="icon icon_tracks"></span>
-                                </span>
-                                <span class="nav_text">
-                                    top tracks
-                                </span>
-                            </a>
-                        </li>
-                        <li><a href="free_music.php" title="Free Music">
-                                <span class="nav_icon">
-                                    <span class="icon icon_music"></span>
-                                </span>
-                                <span class="nav_text">
-                                    free music
-                                </span>
-                            </a>
-                        </li>
+                       
                     </ul>
                 </div>
             </div>
