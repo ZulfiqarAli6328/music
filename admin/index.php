@@ -1,10 +1,10 @@
-<?php
-session_start();
-if ($_SESSION['role'] == 'user') {
-    header('location: ../index.php');
-    die;
-}
-?>
+<!-- <?php
+// session_start();
+// if ($_SESSION['role'] == 'user') {
+//     header('location: ../index.php');
+//     die;
+// }
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -112,8 +112,8 @@ if ($_SESSION['role'] == 'user') {
                         <!-- ==========Contact-Counter-Section========== -->
 
                         <?php
-                        $link = mysqli_connect('localhost', 'root', '', 'ticket-booking');
-                        $q1 = "SELECT `id` FROM `upload_trailers` ORDER BY id";
+                        $link = mysqli_connect('localhost', 'root', '', 'music_db');
+                        $q1 = "SELECT `id` FROM `uploads` ORDER BY id";
                         $res1 = mysqli_query($link, $q1);
                         $movies = mysqli_num_rows($res1);
                         ?>
@@ -130,13 +130,13 @@ if ($_SESSION['role'] == 'user') {
                                                     <h5 class="title odometer" data-odometer-final="130"></h5>
                                                     <h5 class="title"><?= $movies ?></h5>
                                                 </div>
-                                                <p style="color: black; font-weight:bolder ;">Movies</p>
+                                                <p style="color: black; font-weight:bolder ;">Songs</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <?php
-                                    $q2 = "SELECT `id` FROM `users` ORDER BY id";
+                                    $q2 = "SELECT `user_id` FROM `users` ORDER BY user_id";
                                     $res2 = mysqli_query($link, $q2);
                                     $members = mysqli_num_rows($res2);
                                     ?>
@@ -156,7 +156,7 @@ if ($_SESSION['role'] == 'user') {
                                     </div>
 
                                     <?php
-                                    $q3 = "SELECT `ticket_id` FROM `booked_tickets` ORDER BY ticket_id";
+                                    $q3 = "SELECT `id` FROM `genres` ORDER BY id";
                                     $res3 = mysqli_query($link, $q3);
                                     $tickets = mysqli_num_rows($res3);
                                     ?>
@@ -170,7 +170,7 @@ if ($_SESSION['role'] == 'user') {
                                                     <h5 class="title odometer" data-odometer-final="47"></h5>
                                                     <h5 class="title"><?= $tickets ?></h5>
                                                 </div>
-                                                <p style="color: black; font-weight:bolder ;">Booked Tickets</p>
+                                                <p style="color: black; font-weight:bolder ;">Genres</p>
                                             </div>
                                         </div>
                                     </div>

@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
 	$email = $_POST['email'];
 	$pswd = $_POST['pswd'];
 
-	$q = "SELECT * from `users` where `email` = '$email' and `password` = '$pswd'";
+	$q = "SELECT * from `admin` where `email` = '$email' and `password` = '$pswd'";
 	$res = mysqli_query($con, $q);
 
 	if (mysqli_num_rows($res) > 0) {
@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
 		$_SESSION['username'] = $user['username'];
 
 		if ($user) {
-			header('location: ../index.php');
+			header('location: ../admin/index.php');
 			die;
 		}
 	} else {
@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
 
 				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
-						Member Login
+						Admin Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -87,28 +87,6 @@ if (isset($_POST['login'])) {
 						<button class="login100-form-btn" name="login"> 
 							Login
 						</button>
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
-
-					<div class="text-center">
-						<a class="txt2" href="#">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-					<div class="text-center p-t-136">
-						<a class="txt2" href="admin-login.php">
-							Admin
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
 					</div>
 				</form>
 			</div>

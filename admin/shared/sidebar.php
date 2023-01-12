@@ -34,6 +34,9 @@
                  <a href="list-price.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Update Tickets Price</span></a>
              </li>
 
+             <li>
+                 <a href="list-users.php" class="nav-link"><i class="fa-solid fa-boxes-stacked"></i><span>Users List</span></a>
+             </li>
              
          </ul>
      </aside>
