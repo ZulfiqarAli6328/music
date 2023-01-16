@@ -4,7 +4,7 @@ error_reporting(0);
 $user = $_SESSION['user_id'];
 $movie_id = $_GET['id'];
 $link = mysqli_connect('localhost', 'root', '', 'music_db');
-$q = "SELECT *  from `uploads` where id =" . $_GET['id'];
+$q = $q = "SELECT `uploads`.title, `uploads`.artist,`uploads`.id,`genres`.genre,`genres`.id,`genres`.cover_photo FROM `uploads` INNER JOIN `genres` ON `uploads`.`id`=`genres`.`id` where `genres`.id = " . $_GET['id'];
 $res = mysqli_query($link, $q);
 $row = mysqli_fetch_assoc($res);
 ?>
@@ -64,23 +64,18 @@ $row = mysqli_fetch_assoc($res);
         <div class="ms_album_single_wrapper">
             <div class="album_single_data">
                 <div class="album_single_img">
-                    <img src="admin/assets/musicphoto/<?= $row["cover_image"] ?>" style="height: 200px; width: 200px;" alt="" class="img-fluid">
+                    <img src="admin/assets/genresphoto/<?= $row["cover_photo"] ?>" style="height: 200px; width: 200px;" alt="" class="img-fluid">
             
                 </div>
                 <div class="album_single_text">
-                    <h2><?= $row['title']?></h2>
+                    <h2><?= $row['genre']?></h2>
                     <p class="singer_name"><?= $row['artist']?></p>
                     <div class="album_feature">
                         <a href="#" class="album_date">5 song | 25:10</a>
-                        <a href="#" class="album_date">Released <?= $row['song_title']?>  | Abc Music Company</a>
+                        <a href="#" class="album_date">Released <?= $row['genre']?>  | Abc Music Company</a>
                     </div>
                     <div class="album_btn">
-                    <div> 
-  <button class="ms_btn play_btn"  onclick="document.getElementById('player').play()" >Play</button> 
-  <button class="ms_btn play_btn" onclick="document.getElementById('player').pause()">Pause</button> 
-  <button class="ms_btn play_btn" onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
-  <button class="ms_btn play_btn" onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
-</div>
+     
                     </div>
                     <audio id="player" src="admin/assets/music/<?= $row["music"] ?>"></audio>
 
@@ -98,14 +93,13 @@ $row = mysqli_fetch_assoc($res);
 						<li>Song Title</li>
 						<li>Artist</li>
 					</ul>
-                <?php
-                        $link = mysqli_connect('localhost', 'root', '', 'music_db');
-                        $q = "SELECT *  from `uploads`";
+                    <?php
+                        
                         $res = mysqli_query($link, $q);
                         while ($row = mysqli_fetch_assoc($res)) {
-                        ?>
+                            ?>
 					<ul>
-						<li><a href="album_single.php?id=<?= $row['id'] ?>"><span class="play_no"><?= $row['title']?></span><span class="play_hover"></span></a></li>
+						<li><a href="#"><span class="play_no"><?= $row['title']?></span><span class="play_hover"></span></a></li>
 						<li><a href="#"><?= $row['title']?></a></li>
 						<li><a href="#"><?= $row['artist']?></a></li>
 					</ul>
